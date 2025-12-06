@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EcommerceSpringApplication {
 
 	public static void main(String[] args) {
-		Dotenv dotenv = Dotenv.configure().load();
+		Dotenv dotenv = Dotenv.configure().load(); // load environment variables from .env file
 
-		dotenv.entries().forEach((DotenvEntry entry)  -> System.setProperty(entry.getKey(), entry.getValue()));
+		dotenv.entries().forEach((DotenvEntry entry) -> System.setProperty(entry.getKey(), entry.getValue()));
 		SpringApplication.run(EcommerceSpringApplication.class, args);
 	}
 
