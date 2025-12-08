@@ -1,21 +1,34 @@
 package org.example.EcommerceSpring.controllers;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.example.EcommerceSpring.dto.CategoryDTO;
+import org.example.EcommerceSpring.services.ICategoryService;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/api/products")
 public class CategoryController {
 
-    @GetMapping
-    public String getCategory(){
-        return "Electronics";
+    // Constructor based dependency injection
+   //    private ICategoryService categoryService;
+   //
+   //    CategoryController(ICategoryService _categoryService){
+   //        this.categoryService = _categoryService;
+   //    }
+
+    // field based dependency injection
+    //    @Autowired
+    //    private ICategoryService categoryService;
+
+    private final ICategoryService categoryService;
+
+    CategoryController(ICategoryService _categoryService){
+        this.categoryService = _categoryService;
     }
 
-    @GetMapping("/count")
-    public int getCount() {  // if we call a GET req on /api/categories/count
-        return 5;
+
+    @GetMapping("/{id}")
+    public CategoryDTO getOneProduct(@PathVariable int id){
+        return this.categoryService.getOneProduct(id);
     }
 }
+
