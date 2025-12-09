@@ -2,6 +2,7 @@ package org.example.EcommerceSpring.controllers;
 
 import org.example.EcommerceSpring.dto.CategoryDTO;
 import org.example.EcommerceSpring.services.ICategoryService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,8 +28,9 @@ public class CategoryController {
 
 
     @GetMapping("/{id}")
-    public CategoryDTO getOneProduct(@PathVariable int id){
-        return this.categoryService.getOneProduct(id);
+    public ResponseEntity<CategoryDTO> getOneProduct(@PathVariable int id){
+        CategoryDTO result = this.categoryService.getOneProduct(id);
+        return ResponseEntity.ok(result);
     }
 }
 
