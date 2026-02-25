@@ -6,6 +6,5 @@ import java.io.IOException;
 import java.util.List;
 
 public interface ICategoryGateway {
-
-    CategoryDTO getOneProduct(int id) throws IOException;
+    List<CategoryDTO> getAllCategories() throws IOException;
 }

@@ -1,7 +1,10 @@
 package org.example.EcommerceSpring.services;
 import org.example.EcommerceSpring.dto.CategoryDTO;
 
+import java.io.IOException;
+import java.util.List;
+
 public interface ICategoryService {
-    CategoryDTO getOneProduct(int id);
+    List<CategoryDTO> getAllCategories() throws IOException;
 }
 

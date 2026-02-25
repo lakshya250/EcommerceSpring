@@ -6,22 +6,21 @@ import org.example.EcommerceSpring.gateway.ICategoryGateway;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.util.List;
+
 @Service
 public class FakeStoreCategoryService implements ICategoryService {
 
     private final ICategoryGateway categoryGateway;
 
-    public FakeStoreCategoryService(@Qualifier("fakeStoreRestTemplateGateway") ICategoryGateway categoryGateway){
+    public FakeStoreCategoryService(ICategoryGateway categoryGateway){
         this.categoryGateway = categoryGateway;
     }
 
     @Override
-    public CategoryDTO getOneProduct(int id) {
-        try {
-            return categoryGateway.getOneProduct(id);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public List<CategoryDTO> getAllCategories() throws IOException {
+        return this.categoryGateway.getAllCategories();
     }
 }
 
