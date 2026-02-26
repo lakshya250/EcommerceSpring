@@ -1,6 +1,6 @@
 package org.example.EcommerceSpring.config;
 
-import org.example.EcommerceSpring.gateway.api.FakeStoreCartApi;
+import org.example.EcommerceSpring.gateway.api.FakeStoreRatingApi;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import org.example.EcommerceSpring.gateway.api.FakeStoreCategoryApi;
@@ -21,12 +21,12 @@ public class RetrofitConfig {
     }
 
     @Bean
-    public FakeStoreCartApi fakeStoreCartApi() {
+    public FakeStoreRatingApi fakeStoreRatingApi() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://fakestoreapi.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        return retrofit.create(FakeStoreCartApi.class);
+        return retrofit.create(FakeStoreRatingApi.class);
     }
 }

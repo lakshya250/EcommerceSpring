@@ -2,6 +2,7 @@ package org.example.EcommerceSpring.controllers;
 
 import org.example.EcommerceSpring.dto.CategoryDTO;
 import org.example.EcommerceSpring.services.ICategoryService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -29,8 +30,9 @@ public class CategoryController {
     }
 
     @GetMapping("/categories")
-    public List<CategoryDTO> getAllCategories() throws IOException {
-        return this.categoryService.getAllCategories();
+    public ResponseEntity<List<CategoryDTO>> getAllCategories() throws IOException {
+        List<CategoryDTO> result = this.categoryService.getAllCategories();
+        return ResponseEntity.ok(result);
     }
 }
 

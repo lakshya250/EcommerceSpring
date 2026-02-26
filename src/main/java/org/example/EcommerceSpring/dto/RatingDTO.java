@@ -8,7 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RatingDTO {
-
     private double rate;
     private int count;
 }
