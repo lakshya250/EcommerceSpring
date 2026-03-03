@@ -7,7 +7,8 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDTO {
+public class ProductWithCategoryDTO {
+    private Long id;
     private String image;
     private String color;
     private int price;
@@ -15,8 +16,7 @@ public class ProductDTO {
     private int discount;
     private String model;
     private String title;
-    private Long id;
-    private Long categoryId;
     private String brand;
     private boolean popular;
+    private CategoryDTO category;
 }

@@ -1,5 +1,4 @@
 package org.example.EcommerceSpring.dto;
-
 import lombok.*;
 
 @Getter
@@ -8,5 +7,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryDTO {
+  private Long id;
   private String name;
 }
