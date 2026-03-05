@@ -20,9 +20,9 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> getProductById(@PathVariable long id) throws Exception {
-        ProductDTO result = this.productService.getProductById(id);
-        return ResponseEntity.ok(result);
+    public ResponseEntity<?> getProductById(@PathVariable long id) throws Exception{
+            ProductDTO result = this.productService.getProductById(id);
+            return ResponseEntity.ok(result);
     }
 
     @PostMapping
