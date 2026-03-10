@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
@@ -34,5 +35,11 @@ public class ProductController {
     public ResponseEntity<ProductWithCategoryDTO> getProductWithCategory(@PathVariable Long id) throws Exception{
         ProductWithCategoryDTO dto = productService.getProductWithCategory(id);
         return ResponseEntity.ok(dto);
+    }
+
+    @PostMapping("/batch")
+    public ResponseEntity<List<ProductDTO>> getProductsByIds(@RequestBody List<Long> ids) {
+        List<ProductDTO> products = productService.getProductsByIds(ids);
+        return ResponseEntity.ok(products);
     }
 }

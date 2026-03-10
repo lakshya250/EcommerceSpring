@@ -1,5 +1,6 @@
 package org.example.EcommerceSpring.controllers;
 
+import org.example.EcommerceSpring.dto.AllProductsOfCategoryDTO;
 import org.example.EcommerceSpring.dto.CategoryDTO;
 import org.example.EcommerceSpring.services.ICategoryService;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -44,6 +45,14 @@ public class CategoryController {
     @PostMapping
     public ResponseEntity<CategoryDTO> createCategory(@RequestBody CategoryDTO dto){
         return ResponseEntity.ok(categoryService.createCategory(dto));
+    }
+
+    @GetMapping("/{id}/products")
+    public ResponseEntity<AllProductsOfCategoryDTO> getAllProductsOfCategory(@PathVariable Long id) throws Exception{
+
+        AllProductsOfCategoryDTO dto = categoryService.getAllProductsOfCategory(id);
+        return ResponseEntity.ok(dto);
+
     }
 }
 

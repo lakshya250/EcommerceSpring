@@ -6,6 +6,9 @@ import org.example.EcommerceSpring.dto.ProductWithCategoryDTO;
 import org.example.EcommerceSpring.entity.Category;
 import org.example.EcommerceSpring.entity.Product;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class ProductMapper {
 
     public static ProductDTO toDto(Product product){
@@ -52,5 +55,11 @@ public class ProductMapper {
                 .popular(product.isPopular())
                 .category(CategoryMapper.toDto(product.getCategory()))
                 .build();
+    }
+
+    public static List<ProductDTO> toDtoList(List<Product> products) {
+        return products.stream()
+                .map(ProductMapper::toDto)
+                .collect(Collectors.toList());
     }
 }
